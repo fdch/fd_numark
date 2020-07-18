@@ -1,0 +1,6 @@
+#N canvas 0 22 450 300 12;
+#X obj 84 99 s c-\$1-set;
+#X obj 84 28 ctlin \$1;
+#X obj 84 58 < 60;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;

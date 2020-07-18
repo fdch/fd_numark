@@ -1,0 +1,51 @@
+#N canvas 0 22 450 300 12;
+#X obj 99 160 siginfo;
+#N canvas 0 22 450 300 time 0;
+#X obj 197 129 timer;
+#X obj 119 56 inlet;
+#X obj 197 205 outlet;
+#X obj 119 84 t a b b;
+#X obj 119 110 outlet;
+#X connect 0 0 2 0;
+#X connect 1 0 3 0;
+#X connect 3 0 4 0;
+#X connect 3 1 0 0;
+#X connect 3 2 0 1;
+#X restore 96 18 pd time;
+#X msg 121 119 bang;
+#X msg 115 89 reset;
+#N canvas 0 77 626 522 cook 0;
+#X obj 33 125 unpack f f f f f f f;
+#X obj 245 168 t f f;
+#X obj 282 207 /;
+#X obj 282 232 fd_norm;
+#X obj 33 16 inlet;
+#X obj 354 150 inlet time;
+#X text 108 14 Out comes a list of xup \, yup \, zup \, xdis \, ydis
+\, zdis \, dist;
+#X text 106 101 'dist': is the distance of all xdis \, ydis and zdis
+together.;
+#X text 110 59 'x|y|z dis': are the respective absolute value of the
+difference between x and x-1 \, y and y-1 \, z and z-1;
+#X text 110 43 'x|y|z up': a 1 if value increases \, 0 if decreases.
+;
+#X obj 282 257 outlet;
+#X connect 0 6 1 0;
+#X connect 1 1 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 10 0;
+#X connect 4 0 0 0;
+#X connect 5 0 2 1;
+#X restore 125 207 pd cook;
+#X text 189 205 <-- here;
+#X obj 99 46 list prepend 1, f 9;
+#X obj 125 233 outlet;
+#X obj 208 13 inlet;
+#X connect 0 1 4 0;
+#X connect 1 0 6 0;
+#X connect 1 1 4 1;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;
+#X connect 4 0 7 0;
+#X connect 6 0 0 0;
+#X connect 8 0 1 0;

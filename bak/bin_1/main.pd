@@ -1,0 +1,311 @@
+#N canvas 530 50 450 300 12;
+#X declare -path ./lib -path ../rec -path ../txt;
+#N canvas 0 20 450 300 declare 0;
+#X obj 20 20 declare -path ./lib -path ../rec -path ../txt;
+#X restore 20 20 pd declare;
+#X text 200 20 "pd-numark";
+#N canvas 1060 52 142 208 vol 1;
+#X obj 39 26 vsl 15 128 0 127 0 0 vol vol-set vol 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 40 161 nbx 5 14 -1e+37 1e+37 0 0 empty vol empty 0 -8 0 10 -262144
+-1 -1 0 256;
+#X obj 64 31 vu 15 120 vu vu -1 -8 0 10 -66577 -1 1 0;
+#X restore 23 58 pd vol;
+#N canvas 0 22 450 300 dac 0;
+#X obj 39 23 catch~ mono;
+#X obj 39 49 clone -s 1 fd_dacout 2 vol;
+#X obj 39 75 env~;
+#X obj 39 101 - 100;
+#X obj 39 127 s vu;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X restore 22 88 pd dac;
+#N canvas 301 146 599 444 numark 1;
+#X obj 12 52 bng 15 250 50 0 n-48 n-48-set n-48 17 7 0 10 -262144 -1
+-1;
+#X obj 73 78 bng 15 250 50 0 n-49 n-49-set n-49 17 7 0 10 -262144 -1
+-1;
+#X obj 149 78 bng 15 250 50 0 n-50 n-50-set n-50 17 7 0 10 -262144
+-1 -1;
+#X obj 35 400 bng 15 250 50 0 n-51 n-51-set n-51 17 7 0 10 -262144
+-1 -1;
+#X obj 366 220 bng 15 250 50 0 n-52 n-52-set n-52 17 7 0 10 -262144
+-1 -1;
+#X obj 429 78 bng 15 250 50 0 n-53 n-53-set n-53 17 7 0 10 -262144
+-1 -1;
+#X obj 484 78 bng 15 250 50 0 n-54 n-54-set n-54 17 7 0 10 -262144
+-1 -1;
+#X obj 544 52 bng 15 250 50 0 n-55 n-55-set n-55 17 7 0 10 -262144
+-1 -1;
+#X obj 12 76 bng 15 250 50 0 n-56 n-56-set n-56 17 7 0 10 -262144 -1
+-1;
+#X obj 73 122 bng 15 250 50 0 n-57 n-57-set n-57 17 7 0 10 -262144
+-1 -1;
+#X obj 149 122 bng 15 250 50 0 n-58 n-58-set n-58 17 7 0 10 -262144
+-1 -1;
+#X obj 80 400 bng 15 250 50 0 n-59 n-59-set n-59 17 7 0 10 -262144
+-1 -1;
+#X obj 425 400 bng 15 250 50 0 n-60 n-60-set n-60 17 7 0 10 -262144
+-1 -1;
+#X obj 429 122 bng 15 250 50 0 n-61 n-61-set n-61 17 7 0 10 -262144
+-1 -1;
+#X obj 484 122 bng 15 250 50 0 n-62 n-62-set n-62 17 7 0 10 -262144
+-1 -1;
+#X obj 544 76 bng 15 250 50 0 n-63 n-63-set n-63 17 7 0 10 -262144
+-1 -1;
+#X obj 12 100 bng 15 250 50 0 n-64 n-64-set n-64 17 7 0 10 -262144
+-1 -1;
+#X obj 73 166 bng 15 250 50 0 n-65 n-65-set n-65 17 7 0 10 -262144
+-1 -1;
+#X obj 149 166 bng 15 250 50 0 n-66 n-66-set n-66 17 7 0 10 -262144
+-1 -1;
+#X obj 144 400 bng 15 250 50 0 n-67 n-67-set n-67 17 7 0 10 -262144
+-1 -1;
+#X obj 477 400 bng 15 250 50 0 n-68 n-68-set n-68 17 7 0 10 -262144
+-1 -1;
+#X obj 429 166 bng 15 250 50 0 n-69 n-69-set n-69 17 7 0 10 -262144
+-1 -1;
+#X obj 484 166 bng 15 250 50 0 n-70 n-70-set n-70 17 7 0 10 -262144
+-1 -1;
+#X obj 544 100 bng 15 250 50 0 n-71 n-71-set n-71 17 7 0 10 -262144
+-1 -1;
+#X obj 286 244 bng 15 250 50 0 n-72 n-72-set n-72 17 7 0 10 -262144
+-1 -1;
+#X obj 73 220 bng 15 250 50 0 n-73 n-73-set n-73 17 7 0 10 -262144
+-1 -1;
+#X obj 149 220 bng 15 250 50 0 n-74 n-74-set n-74 17 7 0 10 -262144
+-1 -1;
+#X obj 226 220 bng 15 250 50 0 n-75 n-75-set n-75 17 7 0 10 -262144
+-1 -1;
+#X obj 531 400 bng 15 250 50 0 n-76 n-76-set n-76 17 7 0 10 -262144
+-1 -1;
+#X obj 429 220 bng 15 250 50 0 n-77 n-77-set n-77 17 7 0 10 -262144
+-1 -1;
+#X obj 484 220 bng 15 250 50 0 n-78 n-78-set n-78 17 7 0 10 -262144
+-1 -1;
+#X obj 286 200 bng 15 250 50 0 n-79 n-79-set n-79 17 7 0 10 -262144
+-1 -1;
+#X obj 12 139 vsl 15 128 0 127 0 0 c-11 c-11-set c-11 0 -9 0 10 -262144
+-1 -1 7700 1;
+#X obj 544 143 vsl 15 128 0 127 0 0 c-12 c-12-set c-12 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 209 256 vsl 15 128 0 127 0 0 c-8 c-8-set c-8 0 -9 0 10 -262144
+-1 -1 2500 1;
+#X obj 379 256 vsl 15 128 0 127 0 0 c-9 c-9-set c-9 0 -9 0 10 -262144
+-1 -1 9400 1;
+#X obj 253 400 hsl 128 15 0 127 0 0 c-10 c-10-set c-10 -2 -8 0 10 -262144
+-1 -1 6000 1;
+#X obj 223 18 moonlib/mknob 30 128 0 100 0 0 c-13 c-13-set c-13 0 -9
+0 10 -262144 -1 -1 4826 1;
+#X obj 363 18 moonlib/mknob 30 128 0 100 0 0 c-14 c-14-set c-14 0 -9
+0 10 -262144 -1 -1 6223 1;
+#X obj 291 148 moonlib/mknob 30 128 0 100 0 0 c-15 c-15-set c-15 0
+-9 0 10 -262144 -1 -1 0 1;
+#X obj 222 68 moonlib/mknob 30 128 0 100 0 0 c-16 c-16-set c-16 0 -9
+0 10 -262144 -1 -1 7366 1;
+#X obj 363 68 moonlib/mknob 30 128 0 100 0 0 c-17 c-17-set c-17 0 -9
+0 10 -262144 -1 -1 5080 1;
+#X obj 223 113 moonlib/mknob 30 128 0 100 0 0 c-18 c-18-set c-18 0
+-9 0 10 -262144 -1 -1 9271 1;
+#X obj 363 113 moonlib/mknob 30 128 0 100 0 0 c-19 c-19-set c-19 0
+-9 0 10 -262144 -1 -1 3556 1;
+#X obj 225 166 moonlib/mknob 30 128 0 100 0 0 c-20 c-20-set c-20 0
+-9 0 10 -262144 -1 -1 5334 1;
+#X obj 363 166 moonlib/mknob 30 128 0 100 0 0 c-21 c-21-set c-21 0
+-9 0 10 -262144 -1 -1 6604 1;
+#X obj 289 93 moonlib/mknob 30 128 0 100 0 0 c-22 c-22-set c-22 0 -9
+0 10 -262144 -1 -1 12065 1;
+#X obj 291 38 moonlib/mknob 30 128 0 100 0 0 c-23 c-23-set c-23 0 -9
+0 10 -262144 -1 -1 0 1;
+#X obj 73 46 tgl 15 0 c-0 c-0-set c-0 20 10 0 10 -262144 -1 -1 0 1
+;
+#X obj 148 46 tgl 15 0 c-1 c-1-set c-1 20 10 0 10 -262144 -1 -1 1 1
+;
+#X obj 73 101 tgl 15 0 c-2 c-2-set c-2 20 10 0 10 -262144 -1 -1 0 1
+;
+#X obj 149 101 tgl 15 0 c-3 c-3-set c-3 20 10 0 10 -262144 -1 -1 0
+1;
+#X obj 429 46 tgl 15 0 c-4 c-4-set c-4 20 10 0 10 -262144 -1 -1 0 1
+;
+#X obj 483 46 tgl 15 0 c-5 c-5-set c-5 20 10 0 10 -262144 -1 -1 0 1
+;
+#X obj 428 101 tgl 15 0 c-6 c-6-set c-6 20 10 0 10 -262144 -1 -1 0
+1;
+#X obj 484 101 tgl 15 0 c-7 c-7-set c-7 20 10 0 10 -262144 -1 -1 0
+1;
+#X obj 96 301 tgl 15 0 c-24 c-24-set c-24 20 10 0 10 -262144 -1 -1
+1 1;
+#X obj 467 296 tgl 15 0 c-25 c-25-set c-25 20 10 0 10 -262144 -1 -1
+1 1;
+#X obj 285 223 tgl 15 0 c-26 c-26-set c-26 20 10 0 10 -262144 -1 -1
+0 1;
+#N canvas 0 22 450 300 assign 0;
+#N canvas 609 84 450 300 notein 0;
+#X obj 51 72 notein;
+#X obj 51 98 stripnote;
+#X obj 117 170 t b f;
+#X obj 117 196 s;
+#X obj 149 196 makefilename n-%d-set;
+#X obj 51 136 moses 48;
+#X obj 117 137 moses 80;
+#X connect 0 0 1 0;
+#X connect 0 1 1 1;
+#X connect 1 0 5 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 4 0 3 1;
+#X connect 5 1 6 0;
+#X connect 6 0 2 0;
+#X restore 43 180 pd notein;
+#X obj 39 51 clone -s 8 _ctlin 16;
+#X obj 39 99 clone _ctlin2 8;
+#X obj 39 75 clone -s 24 _ctlin2 3;
+#N canvas 0 22 450 300 gui-creator 0;
+#N canvas 755 60 515 556 allnotes 0;
+#X obj 10 0 tgl 15 0 c-24 c-24-set c-24 20 10 0 10 -262144 -1 -1 1
+1;
+#X obj 10 15 tgl 15 0 c-25 c-25-set c-25 20 10 0 10 -262144 -1 -1 1
+1;
+#X obj 10 30 tgl 15 0 c-26 c-26-set c-26 20 10 0 10 -262144 -1 -1 0
+1;
+#X restore 118 20 pd allnotes;
+#X obj 179 62 r n;
+#X obj 233 48 iterate;
+#X obj 225 82 t f f;
+#X msg 305 63 \; pd-allnotes clear;
+#X obj 269 119 * 15;
+#X obj 305 13 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 305 33 t b b;
+#X obj 217 142 pack f f f;
+#X obj 334 126 counter;
+#X msg 245 246 \; pd-allnotes vis 1;
+#X msg 8 175 \; pd-allnotes obj 10 \$2 tgl 15 0 c-\$1 c-\$1-set c-\$1
+20 10 0 10 0 -1 -1 0 1;
+#X obj 218 117 + 24;
+#X msg 233 22 3;
+#X connect 2 0 3 0;
+#X connect 2 1 10 0;
+#X connect 3 0 12 0;
+#X connect 3 1 5 0;
+#X connect 5 0 8 1;
+#X connect 6 0 7 0;
+#X connect 7 0 13 0;
+#X connect 7 1 4 0;
+#X connect 7 1 9 0;
+#X connect 8 0 11 0;
+#X connect 9 0 8 2;
+#X connect 12 0 8 0;
+#X connect 13 0 2 0;
+#X restore 43 156 pd gui-creator;
+#X restore 12 9 pd assign;
+#X restore 21 116 pd numark;
+#N canvas 628 283 574 300 additive 1;
+#X obj 48 39 r c-13;
+#X obj 108 49 r c-14;
+#X obj 492 33 r c-12;
+#X obj 492 59 s vol-set;
+#X obj 190 35 r c-16;
+#X obj 250 45 r c-17;
+#X obj 66 86 _add 2 3 4 5 6;
+#X obj 208 82 _add 3 4 5 6 7;
+#X obj 72 194 _add 1.2 2.3 3.4 4.5 5.4;
+#X obj 54 147 r c-18;
+#X obj 114 157 r c-19;
+#X obj 286 201 _add 1.2 2.3 3.4 4.5 5.4;
+#X obj 268 154 r c-20;
+#X obj 328 164 r c-21;
+#X connect 0 0 6 0;
+#X connect 1 0 6 1;
+#X connect 2 0 3 0;
+#X connect 4 0 7 0;
+#X connect 5 0 7 1;
+#X connect 9 0 8 0;
+#X connect 10 0 8 1;
+#X connect 12 0 11 0;
+#X connect 13 0 11 1;
+#X restore 25 153 pd additive;
+#N canvas 549 55 577 394 phasor 0;
+#X obj 138 54 r c-15;
+#X obj 138 80 / 127;
+#X obj 138 182 + 50;
+#X obj 138 208 phasor~;
+#X obj 138 234 *~ 2;
+#X obj 138 260 -~ 1;
+#X obj 138 286 lop~ 2000;
+#X obj 138 312 *~;
+#X obj 35 330 throw~ mono;
+#X obj 421 276 dbtorms;
+#X obj 421 302 pack f 10;
+#X obj 421 328 line~;
+#X obj 421 250 r c-22;
+#X obj 27 57 r c-23;
+#X obj 27 83 / 127;
+#X obj 27 135 phasor~;
+#X obj 27 161 lop~ 70;
+#X obj 27 187 *~;
+#X obj 27 109 * -12;
+#X obj 138 106 * 100000;
+#X obj 208 208 phasor~;
+#X obj 208 234 *~ 2;
+#X obj 208 260 -~ 1;
+#X obj 278 208 phasor~;
+#X obj 278 234 *~ 2;
+#X obj 278 260 -~ 1;
+#X obj 348 208 phasor~;
+#X obj 348 234 *~ 2;
+#X obj 348 260 -~ 1;
+#X obj 208 286 *~ 0.4;
+#X obj 278 286 *~ 0.2;
+#X obj 348 286 *~ 0.2;
+#X obj 206 162 * 2.3;
+#X obj 283 162 * 2.8;
+#X obj 347 170 * 3.2;
+#X obj 138 144 / 1000;
+#X floatatom 91 85 5 0 0 0 - - -;
+#X obj 325 37 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 325 63 switch~;
+#X connect 0 0 1 0;
+#X connect 1 0 19 0;
+#X connect 2 0 3 0;
+#X connect 2 0 32 0;
+#X connect 2 0 33 0;
+#X connect 2 0 34 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 17 1;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 11 0 7 1;
+#X connect 12 0 9 0;
+#X connect 13 0 14 0;
+#X connect 14 0 18 0;
+#X connect 15 0 16 0;
+#X connect 16 0 17 0;
+#X connect 17 0 8 0;
+#X connect 18 0 15 0;
+#X connect 19 0 35 0;
+#X connect 20 0 21 0;
+#X connect 21 0 22 0;
+#X connect 22 0 29 0;
+#X connect 23 0 24 0;
+#X connect 24 0 25 0;
+#X connect 25 0 30 0;
+#X connect 26 0 27 0;
+#X connect 27 0 28 0;
+#X connect 28 0 31 0;
+#X connect 29 0 6 0;
+#X connect 30 0 6 0;
+#X connect 31 0 6 0;
+#X connect 32 0 20 0;
+#X connect 33 0 23 0;
+#X connect 34 0 26 0;
+#X connect 35 0 2 0;
+#X connect 36 0 16 1;
+#X connect 37 0 38 0;
+#X restore 27 187 pd phasor;
